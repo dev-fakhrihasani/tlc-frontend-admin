@@ -13,6 +13,8 @@ import Partners from './pages/Partners';
 import Programs from './pages/Programs';
 import Testimonies from './pages/Testimonies';
 import Volunteers from './pages/Volunteers';
+import AddCounter from './pages/AddCounter';
+import EditCounter from './pages/EditCounter';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
           <Route path='/blogs' element={<Blogs />}></Route>
 
           <Route path='/counters' element={<Counters />}></Route>
+          <Route path='/counters/add' element={<AddCounter />}></Route>
+          <Route path='/counters/edit/:id' element={<EditCounter />}></Route>
 
           <Route path='/partners' element={<Partners />}></Route>
 

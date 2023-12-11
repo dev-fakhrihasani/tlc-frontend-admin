@@ -15,7 +15,7 @@ const CounterList = () => {
   }
 
   const deleteCounter = async (id) => {
-    await axios.delete(`http://localhost:5000/counter/${id}`)
+    await axios.delete(`http://localhost:5000/counters/${id}`)
     getCounters()
   }
   return (
@@ -34,12 +34,12 @@ const CounterList = () => {
         </thead>
         <tbody>
           {counters.map((counter, index) => (
-            <tr key={counter.uuid}>
+            <tr key={counter.id}>
               <td>{index + 1}</td>
               <td>{counter.name}</td>
               <td>{counter.amount}</td>
               <td>
-                <Link to={`/users/${counter.id}`} className='button is-small is-info'>Edit</Link>
+                <Link to={`/counters/edit/${counter.id}`} className='button is-small is-info'>Edit</Link>
                 <button onClick={() => deleteCounter(counter.id)} className='button is-small is-danger'>Delete</button>
               </td>
             </tr>
