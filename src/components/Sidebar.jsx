@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { IoPerson, IoPricetag, IoHome, IoLogOut } from 'react-icons/io5'
+import { IoPerson, IoPricetag, IoHome, IoLogOut, IoNewspaper, IoPeople, IoList, IoThumbsUp, IoHappy, IoSpeedometer } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
 import { logOut, reset } from '../features/authSlice'
 
@@ -21,7 +21,13 @@ const Sidebar = () => {
         <p className="menu-label"> General </p>
         <ul className="menu-list">
           <li><NavLink to={'/dashboard'}><IoHome /> Dashboard</NavLink></li>
-          <li><NavLink to={"/products"}><IoPricetag /> Products</NavLink></li>
+          <li style={{ pointerEvents: 'none' }} ><NavLink onClick={e => e.preventDefault()} to={"/products"}><IoPricetag /> Products</NavLink></li>
+          <li><NavLink to={"/products"}><IoNewspaper /> Blog </NavLink></li>
+          <li><NavLink to={"/products"}><IoSpeedometer /> Counters </NavLink></li>
+          <li><NavLink to={"/products"}><IoPeople /> Partners </NavLink></li>
+          <li><NavLink to={"/products"}><IoList /> Programs </NavLink></li>
+          <li><NavLink to={"/products"}><IoThumbsUp /> Testiomnies </NavLink></li>
+          <li><NavLink to={"/products"}><IoHappy /> Volunteers </NavLink></li>
         </ul>
         <p className="menu-label">
           Admin
