@@ -31,6 +31,8 @@ const UserList = () => {
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
+            <th>Job</th>
+            <th>Images</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -41,8 +43,14 @@ const UserList = () => {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{user.role}</td>
+              <td>{user.job}</td>
               <td>
-                <Link to={`/users/${user.uuid}`} className='button is-small is-info'>Edit</Link>
+                <figure className='image is-96x96'>
+                  <img src={user.url} alt="img-admin" />
+                </figure>
+              </td>
+              <td>
+                <Link to={`/users/edit/${user.uuid}`} className='button is-small is-info'>Edit</Link>
                 <button onClick={() => deleteUser(user.uuid)} className='button is-small is-danger'>Delete</button>
               </td>
             </tr>
