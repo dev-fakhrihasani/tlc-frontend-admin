@@ -22,12 +22,12 @@ const Sidebar = () => {
         <ul className="menu-list">
           <li><NavLink to={'/dashboard'}><IoHome /> Dashboard</NavLink></li>
           <li style={{ pointerEvents: 'none' }} ><NavLink onClick={e => e.preventDefault()} to={"/products"}><IoPricetag /> Products</NavLink></li>
-          <li><NavLink to={"/products"}><IoNewspaper /> Blog </NavLink></li>
-          <li><NavLink to={"/products"}><IoSpeedometer /> Counters </NavLink></li>
-          <li><NavLink to={"/products"}><IoPeople /> Partners </NavLink></li>
-          <li><NavLink to={"/products"}><IoList /> Programs </NavLink></li>
-          <li><NavLink to={"/products"}><IoThumbsUp /> Testiomnies </NavLink></li>
-          <li><NavLink to={"/products"}><IoHappy /> Volunteers </NavLink></li>
+          <li><NavLink to={"/blogs"}><IoNewspaper /> Blog </NavLink></li>
+          <li><NavLink to={"/counters"}><IoSpeedometer /> Counters </NavLink></li>
+          <li><NavLink to={"/partners"}><IoPeople /> Partners </NavLink></li>
+          <li><NavLink to={"/programs"}><IoList /> Programs </NavLink></li>
+          <li><NavLink to={"/testimonies"}><IoThumbsUp /> Testiomnies </NavLink></li>
+          <li><NavLink to={"/volunteers"}><IoHappy /> Volunteers </NavLink></li>
         </ul>
         <p className="menu-label">
           Admin
