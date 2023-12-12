@@ -2,21 +2,27 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 
-const FormEditPartner = () => {
+const FormEditTestimony = () => {
   const [name, setName] = useState('')
+  const [position, setPosition] = useState('')
+  const [desc, setDesc] = useState('')
+
   const [file, setFile] = useState('')
   const [preview, setPreview] = useState('')
 
   const [msg, setMsg] = useState('')
 
   const navigate = useNavigate()
+
   const { id } = useParams()
 
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/partners/${id}`)
+        const response = await axios.get(`http://localhost:5000/testimonies/${id}`)
         setName(response.data.name)
+        setPosition(response.data.position)
+        setDesc(response.data.desc)
         setFile(response.data.image)
         setPreview(response.data.url)
       } catch (error) {
@@ -28,11 +34,13 @@ const FormEditPartner = () => {
     getUserById()
   }, [id])
 
-  const updatePartner = async (e) => {
+  const updateTestimony = async (e) => {
     e.preventDefault()
     try {
-      await axios.patch(`http://localhost:5000/partners/${id}`, {
+      await axios.patch(`http://localhost:5000/testimonies/${id}`, {
         name,
+        position,
+        desc,
         file
 
       }, {
@@ -40,7 +48,7 @@ const FormEditPartner = () => {
           'Content-Type': 'multipart/form-data'
         }
       })
-      navigate('/partners')
+      navigate('/testimonies')
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg)
@@ -54,15 +62,13 @@ const FormEditPartner = () => {
     setPreview(URL.createObjectURL(image))
   }
 
-
   return (
     <div>
       <div className="card is-shadowless">
         <div className="card-content">
-          <h1 className='title'>Edit Partner</h1>
+          <h1 className='title'>Edit Testimony</h1>
           <div className="content">
-
-            <form onSubmit={updatePartner} >
+            <form onSubmit={updateTestimony} >
               <p className='has-text-centered'>{msg}</p>
 
               <div className="field">
@@ -74,8 +80,31 @@ const FormEditPartner = () => {
                     placeholder='Name'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    autoFocus
-                    required
+                  />
+                </div>
+              </div>
+
+              <div className="field">
+                <label className="label">Position</label>
+                <div className="control">
+                  <input
+                    type="text"
+                    className="input"
+                    placeholder='Position'
+                    value={position}
+                    onChange={(e) => setPosition(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <label className="label">Description</label>
+                <div className="control">
+                  <input
+                    type="text"
+                    className="input"
+                    placeholder='Description'
+                    value={desc}
+                    onChange={(e) => setDesc(e.target.value)}
                   />
                 </div>
               </div>
@@ -104,7 +133,8 @@ const FormEditPartner = () => {
               <div className="field mt-6">
                 <div className="control">
                   <button type='submit' className="button is-success">Save</button>
-                  <Link to="/partners" className="button is-danger ml-2">Cancel</Link>
+                  <Link to={'/testimonies'} className="button is-danger ml-2">Cancel</Link>
+
                 </div>
               </div>
             </form>
@@ -115,4 +145,4 @@ const FormEditPartner = () => {
   )
 }
 
-export default FormEditPartner
+export default FormEditTestimony

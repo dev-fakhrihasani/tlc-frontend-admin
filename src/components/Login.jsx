@@ -37,7 +37,8 @@ const Login = () => {
           <div className="columns is-centered">
             <div className="column is-4">
               <form onSubmit={Auth} className="box">
-                {isError && <p className="has-text-centered">{message}</p>}
+                {isError && <p className="has-text-centered has-text-danger mb-3">{message}</p>}
+
                 <h1 className='title is-2 has-text-centered'>Login</h1>
                 <div className="field">
                   <label className="label">Email</label>
@@ -47,7 +48,9 @@ const Login = () => {
                       className="input"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder='Email' />
+                      placeholder='Email'
+                      autoFocus
+                      required />
                   </div>
                 </div>
                 <div className="field">
@@ -58,7 +61,9 @@ const Login = () => {
                       className="input"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      placeholder='******' />
+                      placeholder='******'
+                      autoFocus
+                      required />
                   </div>
                 </div>
                 <div className="field mt-5">

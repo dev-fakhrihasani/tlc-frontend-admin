@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const FormAddCounter = () => {
   const [name, setName] = useState('')
@@ -26,10 +26,9 @@ const FormAddCounter = () => {
 
   return (
     <div>
-      <h1 className='title'>Counters</h1>
-      <h2 className='subtitle'>Add New Counter</h2>
       <div className="card is-shadowless">
         <div className="card-content">
+          <h1 className='title'>Add New Counters</h1>
           <div className="content">
             <form onSubmit={saveCounter} >
               <p className='has-text-centered'> {msg} </p>
@@ -41,7 +40,10 @@ const FormAddCounter = () => {
                     className="input"
                     placeholder='Name'
                     value={name}
-                    onChange={(e) => setName(e.target.value)} />
+                    onChange={(e) => setName(e.target.value)}
+                    autoFocus
+                    required
+                  />
                 </div>
               </div>
               <div className="field">
@@ -52,12 +54,15 @@ const FormAddCounter = () => {
                     className="input"
                     placeholder='Amount'
                     value={amount}
-                    onChange={(e) => setAmount(e.target.value)} />
+                    onChange={(e) => setAmount(e.target.value)}
+                    required
+                  />
                 </div>
               </div>
               <div className="field">
                 <div className="control">
                   <button type='submit' className="button is-success">Save</button>
+                  <Link to="/counters" className="button is-danger ml-2">Cancel</Link>
                 </div>
               </div>
             </form>

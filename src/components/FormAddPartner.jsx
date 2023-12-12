@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const FormAddPartner = () => {
   const [name, setName] = useState('')
@@ -40,12 +40,10 @@ const FormAddPartner = () => {
 
   return (
     <div>
-      <h1 className='title'>Partners</h1>
-      <h2 className='subtitle'>Add New Partner</h2>
       <div className="card is-shadowless">
         <div className="card-content">
+          <h1 className='title'>Add New Partners</h1>
           <div className="content">
-
             <form onSubmit={savePartner} >
               <p className='has-text-centered'>{msg}</p>
 
@@ -58,6 +56,8 @@ const FormAddPartner = () => {
                     placeholder='Name'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    autoFocus
+                    required
                   />
                 </div>
               </div>
@@ -86,6 +86,7 @@ const FormAddPartner = () => {
               <div className="field mt-6">
                 <div className="control">
                   <button type='submit' className="button is-success">Save</button>
+                  <Link to="/partners" className="button is-danger ml-2">Cancel</Link>
                 </div>
               </div>
             </form>

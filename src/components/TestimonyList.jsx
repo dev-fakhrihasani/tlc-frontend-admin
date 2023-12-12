@@ -3,6 +3,22 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const TestimonyList = () => {
+  const [testimonies, setTestimonies] = useState([])
+
+  useEffect(() => {
+    getTestimony()
+  }, [])
+
+  const getTestimony = async () => {
+    const response = await axios.get('http://localhost:5000/testimonies')
+    setTestimonies(response.data)
+  }
+
+  const deletePartner = async (id) => {
+    await axios.delete(`http://localhost:5000/testimonies/${id}`)
+    getTestimony()
+  }
+
   return (
     <div>
       <h1 className='title'>Testimony</h1>
@@ -14,21 +30,29 @@ const TestimonyList = () => {
             <th>No</th>
             <th>Name</th>
             <th>Position</th>
+            <th>Description</th>
             <th>Image</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <Link className='button is-small is-info'>Edit</Link>
-              <button className='button is-small is-danger'>Delete</button>
-            </td>
-          </tr>
+          {testimonies.map((testimony, index) => (
+            <tr key={testimony.id} >
+              <td>{index + 1}</td>
+              <td>{testimony.name}</td>
+              <td>{testimony.position}</td>
+              <td>{testimony.desc}</td>
+              <td>
+                <figure className='image is-48x48'>
+                  <img src={testimony.url} alt={testimony.name} />
+                </figure>
+              </td>
+              <td>
+                <Link to={`/testimonies/edit/${testimony.id}`} className='button is-small is-info'>Edit</Link>
+                <button onClick={() => deletePartner(testimony.id)} className='button is-small is-danger'>Delete</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
