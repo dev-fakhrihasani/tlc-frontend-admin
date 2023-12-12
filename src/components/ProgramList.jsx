@@ -4,6 +4,22 @@ import { Link } from 'react-router-dom';
 
 
 const ProgramList = () => {
+  const [programs, setPrograms] = useState([])
+
+  useEffect(() => {
+    getPrograms()
+  }, [])
+
+  const getPrograms = async () => {
+    const response = await axios.get('http://localhost:5000/programs')
+    setPrograms(response.data)
+  }
+
+  const deleteProgram = async (id) => {
+    await axios.delete(`http://localhost:5000/programs/${id}`)
+    getPrograms()
+  }
+
   return (
     <div>
       <h1 className='title'>Program</h1>
@@ -18,14 +34,16 @@ const ProgramList = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>
-              <Link className='button is-small is-info'>Edit</Link>
-              <button className='button is-small is-danger'>Delete</button>
-            </td>
-          </tr>
+          {programs.map((program, index) => (
+            <tr key={program.id} >
+              <td> {index + 1} </td>
+              <td> {program.name} </td>
+              <td>
+                <Link to={`/programs/edit/${program.id}`} className='button is-small is-info'>Edit</Link>
+                <button onClick={() => deleteProgram(program.id)} className='button is-small is-danger'>Delete</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

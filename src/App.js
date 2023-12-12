@@ -15,6 +15,8 @@ import Testimonies from './pages/Testimonies';
 import Volunteers from './pages/Volunteers';
 import AddCounter from './pages/AddCounter';
 import EditCounter from './pages/EditCounter';
+import AddPartner from './pages/AddPartner';
+import EditPartners from './pages/EditPartners';
 
 function App() {
   return (
@@ -23,9 +25,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />}></Route>
           <Route path='/dashboard' element={<Dashboard />}></Route>
+
           <Route path='/users' element={<Users />}></Route>
           <Route path='/users/add' element={<AddUser />}></Route>
           <Route path='/users/edit/:id' element={<EditUser />}></Route>
+
           <Route path='/products' element={<Products />}></Route>
           <Route path='/products/add' element={<AddProduct />}></Route>
           <Route path='/products/edit/:id' element={<EditProduct />}></Route>
@@ -37,6 +41,8 @@ function App() {
           <Route path='/counters/edit/:id' element={<EditCounter />}></Route>
 
           <Route path='/partners' element={<Partners />}></Route>
+          <Route path='/partners/add' element={<AddPartner />}></Route>
+          <Route path='/partners/edit/:id' element={<EditPartners />}></Route>
 
           <Route path='/programs' element={<Programs />}></Route>
 

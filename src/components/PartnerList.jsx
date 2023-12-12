@@ -3,6 +3,23 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const PartnerList = () => {
+  const [partners, setPartners] = useState([])
+
+  useEffect(() => {
+    getPartner()
+  }, [])
+
+  const getPartner = async () => {
+    const response = await axios.get('http://localhost:5000/partners')
+    setPartners(response.data)
+  }
+
+  const deletePartner = async (id) => {
+    await axios.delete(`http://localhost:5000/partners/${id}`)
+    getPartner()
+  }
+
+
   return (
     <div>
       <h1 className='title'>Partners</h1>
@@ -18,15 +35,23 @@ const PartnerList = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <Link className='button is-small is-info'>Edit</Link>
-              <button className='button is-small is-danger'>Delete</button>
-            </td>
-          </tr>
+          {partners.map((partner, index) => (
+
+
+            <tr key={partner.id}>
+              <td> {index + 1} </td>
+              <td> {partner.name} </td>
+              <td>
+                <figure className='image is-96x96'>
+                  <img src={partner.url} alt="img-admin" />
+                </figure>
+              </td>
+              <td>
+                <Link to={`/partners/edit/${partner.id}`} className='button is-small is-info'>Edit</Link>
+                <button onClick={() => deletePartner(partner.id)} className='button is-small is-danger'>Delete</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
