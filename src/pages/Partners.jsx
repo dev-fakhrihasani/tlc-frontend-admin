@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
-import Layout from './Layout'
-import PartnerList from '../components/PartnerList'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { getMe } from '../features/authSlice'
+import React, { useEffect } from "react"
+import Layout from "./Layout"
+import PartnerList from "../components/PartnerList"
+import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { getMe } from "../features/authSlice"
 
 const Partners = () => {
   const dispatch = useDispatch()
@@ -16,7 +16,7 @@ const Partners = () => {
 
   useEffect(() => {
     if (isError) {
-      navigate('/')
+      navigate("/")
     }
   }, [isError, navigate])
   return (

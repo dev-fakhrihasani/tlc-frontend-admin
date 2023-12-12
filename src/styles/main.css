@@ -1,0 +1,26 @@
+.lg-hidden {
+  display: block;
+}
+
+.sm-hidden {
+  display: none;
+}
+
+.sm-padding {
+  padding-inline: 30px;
+}
+
+@media screen and (min-width: 1024px) {
+  .lg-hidden {
+    display: none;
+  }
+
+  .sm-hidden {
+    display: block;
+  }
+
+  .sm-padding {
+    padding: 20px;
+  }
+
+}
