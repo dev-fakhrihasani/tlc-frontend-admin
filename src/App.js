@@ -17,6 +17,8 @@ import AddCounter from './pages/AddCounter';
 import EditCounter from './pages/EditCounter';
 import AddPartner from './pages/AddPartner';
 import EditPartners from './pages/EditPartners';
+import AddProgram from './pages/AddProgram';
+import EditProgram from './pages/EditProgram';
 
 function App() {
   return (
@@ -45,6 +47,8 @@ function App() {
           <Route path='/partners/edit/:id' element={<EditPartners />}></Route>
 
           <Route path='/programs' element={<Programs />}></Route>
+          <Route path='/programs/add' element={<AddProgram />}></Route>
+          <Route path='/programs/edit/:id' element={<EditProgram />}></Route>
 
           <Route path='/testimonies' element={<Testimonies />}></Route>
 
