@@ -46,7 +46,7 @@ const FormAddTestimony = () => {
     <div>
       <div className="card is-shadowless">
         <div className="card-content">
-          <h1 className='title'>Add Testimony</h1>
+          <h1 className='title'>Add New Testimony</h1>
           <div className="content">
             <form onSubmit={saveTestimony} >
               <p className='has-text-centered'>{msg}</p>
@@ -79,13 +79,15 @@ const FormAddTestimony = () => {
               <div className="field">
                 <label className="label">Description</label>
                 <div className="control">
-                  <input
-                    type="text"
-                    className="input"
-                    placeholder='Description'
+                  <textarea
+                    className="textarea"
+                    placeholder="Description"
                     value={desc}
                     onChange={(e) => setDesc(e.target.value)}
-                  />
+                  >
+
+                  </textarea>
+
                 </div>
               </div>
 

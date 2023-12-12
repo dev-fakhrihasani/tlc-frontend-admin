@@ -21,7 +21,7 @@ const Navbar = () => {
             <img src="https://bulma.io/images/bulma-logo.png" alt="Logo" width="112" height="28" />
           </NavLink>
 
-          <a href='https://localhost:3000' role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>

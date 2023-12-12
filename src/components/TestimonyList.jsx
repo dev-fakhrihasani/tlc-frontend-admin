@@ -43,7 +43,7 @@ const TestimonyList = () => {
               <td>{testimony.position}</td>
               <td>{testimony.desc}</td>
               <td>
-                <figure className='image is-48x48'>
+                <figure className='image is-128x128'>
                   <img src={testimony.url} alt={testimony.name} />
                 </figure>
               </td>
