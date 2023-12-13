@@ -101,7 +101,7 @@ const FormAddVolunteer = () => {
               <div className="field mt-6">
                 <div className="control">
                   <button type='submit' className="button is-success">Save</button>
-                  <Link to="/partners" className="button is-danger ml-2">Cancel</Link>
+                  <Link to="/volunteers" className="button is-danger ml-2">Cancel</Link>
                 </div>
               </div>
             </form>

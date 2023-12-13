@@ -22,6 +22,7 @@ import EditProgram from './pages/EditProgram';
 import AddTestimony from './pages/AddTestimony';
 import EditTestimony from './pages/EditTestimony';
 import AddVolunteer from './pages/AddVolunteer';
+import EditVolunteer from './pages/EditVolunteer';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
 
           <Route path='/volunteers' element={<Volunteers />}></Route>
           <Route path='/volunteers/add' element={<AddVolunteer />}></Route>
+          <Route path='/volunteers/edit/:id' element={<EditVolunteer />}></Route>
 
 
         </Routes>

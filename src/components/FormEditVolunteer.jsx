@@ -2,21 +2,23 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 
-const FormEditPartner = () => {
+const FormEditVolunteer = () => {
   const [name, setName] = useState('')
+  const [division, setDivision] = useState('')
   const [file, setFile] = useState('')
   const [preview, setPreview] = useState('')
 
   const [msg, setMsg] = useState('')
+  const { id } = useParams()
 
   const navigate = useNavigate()
-  const { id } = useParams()
 
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/partners/${id}`)
+        const response = await axios.get(`http://localhost:5000/volunteers/${id}`)
         setName(response.data.name)
+        setDivision(response.data.division)
         setFile(response.data.image)
         setPreview(response.data.url)
       } catch (error) {
@@ -28,11 +30,12 @@ const FormEditPartner = () => {
     getUserById()
   }, [id])
 
-  const updatePartner = async (e) => {
+  const updateVolunteer = async (e) => {
     e.preventDefault()
     try {
-      await axios.patch(`http://localhost:5000/partners/${id}`, {
+      await axios.patch(`http://localhost:5000/volunteers/${id}`, {
         name,
+        division,
         file
 
       }, {
@@ -40,7 +43,7 @@ const FormEditPartner = () => {
           'Content-Type': 'multipart/form-data'
         }
       })
-      navigate('/partners')
+      navigate('/volunteers')
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg)
@@ -54,15 +57,13 @@ const FormEditPartner = () => {
     setPreview(URL.createObjectURL(image))
   }
 
-
   return (
     <div>
       <div className="card is-shadowless">
         <div className="card-content">
-          <h1 className='title'>Edit Partner</h1>
+          <h1 className='title'>Edit Volunteer</h1>
           <div className="content">
-
-            <form onSubmit={updatePartner} >
+            <form onSubmit={updateVolunteer} >
               <p className='has-text-centered'>{msg}</p>
 
               <div className="field">
@@ -81,11 +82,25 @@ const FormEditPartner = () => {
               </div>
 
               <div className="field">
+                <label className="label">Division</label>
+                <div className="control">
+                  <input
+                    type="text"
+                    className="input"
+                    placeholder='Division'
+                    value={division}
+                    onChange={(e) => setDivision(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="field">
                 <label className="label">Image</label>
                 <div className="control">
                   <div className="file">
                     <label className="file-label">
-                      <input type="file" className='file-input' onChange={loadImage} />
+                      <input type="file" className='file-input' onChange={loadImage} required />
                       <span className='file-cta'>
                         <span className="file-label">Choose a file....</span>
                       </span>
@@ -104,7 +119,7 @@ const FormEditPartner = () => {
               <div className="field mt-6">
                 <div className="control">
                   <button type='submit' className="button is-success">Update</button>
-                  <Link to="/partners" className="button is-danger ml-2">Cancel</Link>
+                  <Link to="/volunteers" className="button is-danger ml-2">Cancel</Link>
                 </div>
               </div>
             </form>
@@ -115,4 +130,4 @@ const FormEditPartner = () => {
   )
 }
 
-export default FormEditPartner
+export default FormEditVolunteer
