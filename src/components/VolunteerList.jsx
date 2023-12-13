@@ -36,7 +36,7 @@ const VolunteerList = () => {
         </thead>
         <tbody>
           {volunteers.map((volunteer, index) => (
-            <tr key={volunteers.id}>
+            <tr key={volunteer.id}>
               <td> {index + 1} </td>
               <td> {volunteer.name} </td>
               <td> {volunteer.division}  </td>
@@ -46,8 +46,8 @@ const VolunteerList = () => {
                 </figure>
               </td>
               <td>
-                <Link to={`/volunteers/edit/${volunteers.id}`} className='button is-small is-info'>Edit</Link>
-                <button onClick={() => deleteVolunteer(volunteers.id)} className='button is-small is-danger'>Delete</button>
+                <Link to={`/volunteers/edit/${volunteer.id}`} className='button is-small is-info'>Edit</Link>
+                <button onClick={() => deleteVolunteer(volunteer.id)} className='button is-small is-danger'>Delete</button>
               </td>
             </tr>
           ))}

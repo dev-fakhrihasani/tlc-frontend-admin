@@ -21,6 +21,7 @@ import AddProgram from './pages/AddProgram';
 import EditProgram from './pages/EditProgram';
 import AddTestimony from './pages/AddTestimony';
 import EditTestimony from './pages/EditTestimony';
+import AddVolunteer from './pages/AddVolunteer';
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
           <Route path='/testimonies/edit/:id' element={<EditTestimony />}></Route>
 
           <Route path='/volunteers' element={<Volunteers />}></Route>
+          <Route path='/volunteers/add' element={<AddVolunteer />}></Route>
 
 
         </Routes>
