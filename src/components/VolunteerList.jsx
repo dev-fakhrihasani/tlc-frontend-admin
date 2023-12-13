@@ -14,6 +14,11 @@ const VolunteerList = () => {
     setVolunteers(response.data)
   }
 
+  const deleteVolunteer = async (id) => {
+    await axios.delete(`http://localhost:5000/volunteers/${id}`)
+    getVolunteers()
+  }
+
   return (
     <div>
       <h1 className='title'>Volunteers</h1>
@@ -41,8 +46,8 @@ const VolunteerList = () => {
                 </figure>
               </td>
               <td>
-                <Link className='button is-small is-info'>Edit</Link>
-                <button className='button is-small is-danger'>Delete</button>
+                <Link to={`/volunteers/edit/${volunteers.id}`} className='button is-small is-info'>Edit</Link>
+                <button onClick={() => deleteVolunteer(volunteers.id)} className='button is-small is-danger'>Delete</button>
               </td>
             </tr>
           ))}
