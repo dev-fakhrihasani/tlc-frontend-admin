@@ -3,6 +3,17 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const BlogList = () => {
+  const [blogs, SetBlogs] = useState([])
+
+  useEffect(() => {
+    getBlogs()
+  }, [])
+
+  const getBlogs = async () => {
+    const response = await axios.get('http://localhost:5000/blogs')
+    SetBlogs(response.data)
+  }
+
   return (
     <div>
       <h1 className='title'>Blogs</h1>
@@ -13,24 +24,30 @@ const BlogList = () => {
           <tr>
             <th>No</th>
             <th>Title</th>
-            <th>Slug</th>
             <th>Desc</th>
             <th>Date</th>
+            <th>Image</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <Link className='button is-small is-info'>Edit</Link>
-              <button className='button is-small is-danger'>Delete</button>
-            </td>
-          </tr>
+          {blogs.map((blog, index) => (
+            <tr key={blog.id}>
+              <td>{index + 1}</td>
+              <td>{blog.title}</td>
+              <td>{blog.desc}</td>
+              <td>{blog.date}</td>
+              <td>
+                <figure className="image is-128x128">
+                  <img src={blog.url} alt={blog.title} />
+                </figure>
+              </td>
+              <td>
+                <Link to={`/blogs/edit/${blog.id}`} className='button is-small is-info'>Edit</Link>
+                <button className='button is-small is-danger'>Delete</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
