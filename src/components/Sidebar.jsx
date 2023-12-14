@@ -6,7 +6,6 @@ import {
   IoNewspaper,
   IoPeople,
   IoPerson,
-  IoPricetag,
   IoSpeedometer,
   IoThumbsUp,
 } from "react-icons/io5"
@@ -16,17 +15,12 @@ import { NavLink } from "react-router-dom"
 const Sidebar = () => {
   return (
     <div>
-      <aside className="menu pl-2 has-shadow">
+      <aside className="menu has-shadow">
         <p className="menu-label"> General </p>
         <ul className="menu-list">
           <li>
             <NavLink to={"/dashboard"}>
               <IoHome /> Dashboard
-            </NavLink>
-          </li>
-          <li style={{ pointerEvents: "none" }}>
-            <NavLink onClick={(e) => e.preventDefault()} to={"/products"}>
-              <IoPricetag /> Products
             </NavLink>
           </li>
           <li>
