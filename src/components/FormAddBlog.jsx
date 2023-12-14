@@ -30,7 +30,7 @@ const FormAddBlog = () => {
           'Content-Type': 'multipart/form-data'
         }
       })
-      navigate('/testimonies')
+      navigate('/blogs')
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg)

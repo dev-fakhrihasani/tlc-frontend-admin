@@ -14,6 +14,11 @@ const BlogList = () => {
     SetBlogs(response.data)
   }
 
+  const deleteBlog = async (id) => {
+    await axios.delete(`http://localhost:5000/blogs/${id}`)
+    getBlogs()
+  }
+
   return (
     <div>
       <h1 className='title'>Blogs</h1>
@@ -44,7 +49,7 @@ const BlogList = () => {
               </td>
               <td>
                 <Link to={`/blogs/edit/${blog.id}`} className='button is-small is-info'>Edit</Link>
-                <button className='button is-small is-danger'>Delete</button>
+                <button onClick={() => deleteBlog(blog.id)} className='button is-small is-danger'>Delete</button>
               </td>
             </tr>
           ))}
