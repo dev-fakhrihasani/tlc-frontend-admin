@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import Layout from './Layout'
-import FormAddBlog from '../components/FormAddBlog'
+import FormEditBlog from '../components/FormEditBlog'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getMe } from '../features/authSlice'
 
-const AddBlog = () => {
+const EditBlog = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { isError } = useSelector((state) => state.auth)
@@ -22,10 +22,10 @@ const AddBlog = () => {
   return (
     <div>
       <Layout>
-        <FormAddBlog />
+        <FormEditBlog />
       </Layout>
     </div>
   )
 }
 
-export default AddBlog
+export default EditBlog

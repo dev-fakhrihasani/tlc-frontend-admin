@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import sluger from 'slug-pixy'
 
-const FormAddBlog = () => {
+const FormEditBlog = () => {
   const [title, setTitle] = useState('')
   const [slug, setSlug] = useState('')
   const [desc, setDesc] = useState('')
@@ -15,10 +15,33 @@ const FormAddBlog = () => {
   const [msg, setMsg] = useState('')
 
   const navigate = useNavigate()
-  const saveBlog = async (e) => {
+
+  const { id } = useParams()
+
+  useEffect(() => {
+    const getBlogById = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/blogs/${id}`)
+        setTitle(response.data.title)
+        setSlug(response.data.slug)
+        setDesc(response.data.desc)
+        setDate(response.data.date)
+        setCategory(response.data.category)
+        setFile(response.data.image)
+        setPreview(response.data.url)
+      } catch (error) {
+        if (error.response) {
+          setMsg(error.response.data.msg)
+        }
+      }
+    }
+    getBlogById()
+  }, [id])
+
+  const updateBlog = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:5000/blogs', {
+      await axios.patch(`http://localhost:5000/blogs/${id}`, {
         title,
         slug: sluger(title),
         desc,
@@ -49,9 +72,9 @@ const FormAddBlog = () => {
     <div>
       <div className="card is-shadowless">
         <div className="card-content">
-          <h1 className='title'>Add New Blogs</h1>
+          <h1 className='title'>Edit Blogs</h1>
           <div className="content">
-            <form onSubmit={saveBlog} >
+            <form onSubmit={updateBlog} >
               <p className='has-text-centered'>{msg}</p>
 
               <div className="field">
@@ -75,7 +98,7 @@ const FormAddBlog = () => {
                   <input
                     type="text"
                     className="input"
-                    placeholder='Slug'
+                    placeholder='Name'
                     value={sluger(title)}
                     onChange={(e) => setSlug(e.target.value)}
                     required
@@ -102,7 +125,7 @@ const FormAddBlog = () => {
                 <div className="control">
                   <input
                     type="date"
-                    className="input column is-one-quarter-desktop"
+                    className="input"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                     required
@@ -162,4 +185,4 @@ const FormAddBlog = () => {
   )
 }
 
-export default FormAddBlog
+export default FormEditBlog

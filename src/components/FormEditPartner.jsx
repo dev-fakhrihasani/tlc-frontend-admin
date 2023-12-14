@@ -13,7 +13,7 @@ const FormEditPartner = () => {
   const { id } = useParams()
 
   useEffect(() => {
-    const getUserById = async () => {
+    const getPartnerById = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/partners/${id}`)
         setName(response.data.name)
@@ -25,7 +25,7 @@ const FormEditPartner = () => {
         }
       }
     }
-    getUserById()
+    getPartnerById()
   }, [id])
 
   const updatePartner = async (e) => {

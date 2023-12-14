@@ -8,13 +8,13 @@ const Layout = ({ children }) => {
     <div className="sm-padding">
       <React.Fragment>
         <Navbar />
-        <div className="columns mt-6" style={{ minHeight: "100vh" }}>
-          <div className="column is-2 ">
+        <div className="columns pt-6" style={{ minHeight: "100vh" }}>
+          <div className="column is-2 has-background-link-light is-hidden-tablet-only">
             <div className="sm-hidden">
               <Sidebar />
             </div>
           </div>
-          <div className="column has-background-light">
+          <div className="column">
             <main>{children}</main>
           </div>
         </div>

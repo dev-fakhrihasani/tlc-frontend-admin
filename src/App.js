@@ -36,6 +36,7 @@ import EditTestimony from './pages/EditTestimony';
 import Volunteers from './pages/Volunteers';
 import AddVolunteer from './pages/AddVolunteer';
 import EditVolunteer from './pages/EditVolunteer';
+import EditBlog from './pages/EditBlog';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
 
           <Route path='/blogs' element={<Blogs />}></Route>
           <Route path='/blogs/add' element={<AddBlog />}></Route>
+          <Route path='/blogs/edit/:id' element={<EditBlog />}></Route>
 
           <Route path='/users' element={<Users />}></Route>
           <Route path='/users/add' element={<AddUser />}></Route>

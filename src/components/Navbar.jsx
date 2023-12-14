@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { logOut, reset } from "../features/authSlice"
 import Sidebar from "./Sidebar"
 import "../styles/main.css"
+import Logo from "../assets/logo.svg"
 
 const Navbar = () => {
   const dispatch = useDispatch()
@@ -18,14 +19,14 @@ const Navbar = () => {
   }
   return (
     <nav
-      className="navbar is-fixed-top has-shadow"
+      className="navbar is-fixed-top has-background-link-light"
       role="navigation"
       aria-label="main navigation"
     >
       <div className="navbar-brand">
         <NavLink to="/dashboard" className="navbar-item">
           <img
-            src="https://bulma.io/images/bulma-logo.png"
+            src={Logo}
             alt="Logo"
             width="112"
             height="28"
