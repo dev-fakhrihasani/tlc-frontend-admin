@@ -24,40 +24,41 @@ const UserList = () => {
       <h1 className='title'>Users</h1>
       <h2 className='subtitle'>List of Users</h2>
       <Link to="/users/add" className="button is-primary mb-2">Add New</Link >
-      <table className='table is-striped is-fullwidth'>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Job</th>
-            <th>Images</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user, index) => (
-            <tr key={user.uuid}>
-              <td>{index + 1}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.role}</td>
-              <td>{user.job}</td>
-              <td>
-                <figure className='image is-96x96'>
-                  <img src={user.url} alt="img-admin" />
-                </figure>
-              </td>
-              <td>
-                <Link to={`/users/edit/${user.uuid}`} className='button is-small is-info'>Edit</Link>
-                <button onClick={() => deleteUser(user.uuid)} className='button is-small is-danger'>Delete</button>
-              </td>
+      <div className="table-container">
+        <table className='table is-striped is-fullwidth'>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Job</th>
+              <th>Images</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-
+          </thead>
+          <tbody>
+            {users.map((user, index) => (
+              <tr key={user.uuid}>
+                <td>{index + 1}</td>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.role}</td>
+                <td>{user.job}</td>
+                <td>
+                  <figure className='image is-96x96'>
+                    <img src={user.url} alt="img-admin" />
+                  </figure>
+                </td>
+                <td>
+                  <Link to={`/users/edit/${user.uuid}`} className='button is-small is-info'>Edit</Link>
+                  {/* <button onClick={() => deleteUser(user.uuid)} className='button is-small is-danger'>Delete</button> */}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

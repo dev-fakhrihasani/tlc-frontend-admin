@@ -50,7 +50,7 @@ const BlogList = () => {
                   </figure>
                 </td>
                 <td>
-                  <Link to={`/blogs/edit/${blog.id}`} className='button is-small is-info'>Edit</Link>
+                  <Link to={`/blogs/edit/${blog.id}`} className='button is-small is-info mb-1'>Edit</Link>
                   <button onClick={() => deleteBlog(blog.id)} className='button is-small is-danger'>Delete</button>
                 </td>
               </tr>

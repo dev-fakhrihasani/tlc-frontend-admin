@@ -24,37 +24,39 @@ const TestimonyList = () => {
       <h1 className='title'>Testimony</h1>
       <h2 className='subtitle'>List of Testimony</h2>
       <Link to="/testimonies/add" className="button is-primary mb-2">Add New</Link >
-      <table className='table is-striped is-fullwidth'>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {testimonies.map((testimony, index) => (
-            <tr key={testimony.id} >
-              <td>{index + 1}</td>
-              <td>{testimony.name}</td>
-              <td>{testimony.position}</td>
-              <td>{testimony.desc}</td>
-              <td>
-                <figure className='image is-128x128'>
-                  <img src={testimony.url} alt={testimony.name} />
-                </figure>
-              </td>
-              <td>
-                <Link to={`/testimonies/edit/${testimony.id}`} className='button is-small is-info'>Edit</Link>
-                <button onClick={() => deletePartner(testimony.id)} className='button is-small is-danger'>Delete</button>
-              </td>
+      <div className="table-container">
+        <table className='table is-striped is-fullwidth'>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Description</th>
+              <th>Image</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {testimonies.map((testimony, index) => (
+              <tr key={testimony.id} >
+                <td>{index + 1}</td>
+                <td>{testimony.name}</td>
+                <td>{testimony.position}</td>
+                <td>{testimony.desc}</td>
+                <td>
+                  <figure className='image is-128x128'>
+                    <img src={testimony.url} alt={testimony.name} />
+                  </figure>
+                </td>
+                <td>
+                  <Link to={`/testimonies/edit/${testimony.id}`} className='button is-small is-info mb-1'>Edit</Link>
+                  <button onClick={() => deletePartner(testimony.id)} className='button is-small is-danger'>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
