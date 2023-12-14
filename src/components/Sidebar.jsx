@@ -10,21 +10,9 @@ import {
   IoSpeedometer,
   IoThumbsUp,
 } from "react-icons/io5"
-import { useDispatch, useSelector } from "react-redux"
-import { NavLink, useNavigate } from "react-router-dom"
-import { logOut, reset } from "../features/authSlice"
+import { NavLink } from "react-router-dom"
 
 const Sidebar = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const { user } = useSelector((state) => state.auth)
-
-  const logout = () => {
-    dispatch(logOut())
-    dispatch(reset())
-    navigate("/")
-  }
-
   return (
     <div>
       <aside className="menu pl-2 has-shadow">
@@ -42,32 +30,37 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink to={"/blogs"}>
-              <IoNewspaper /> Blog{" "}
+              <IoNewspaper /> Blog
             </NavLink>
           </li>
           <li>
             <NavLink to={"/counters"}>
-              <IoSpeedometer /> Counters{" "}
+              <IoSpeedometer /> Counters
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/finances"}>
+              <IoSpeedometer /> Finances
             </NavLink>
           </li>
           <li>
             <NavLink to={"/partners"}>
-              <IoPeople /> Partners{" "}
+              <IoPeople /> Partners
             </NavLink>
           </li>
           <li>
             <NavLink to={"/programs"}>
-              <IoList /> Programs{" "}
+              <IoList /> Programs
             </NavLink>
           </li>
           <li>
             <NavLink to={"/testimonies"}>
-              <IoThumbsUp /> Testiomnies{" "}
+              <IoThumbsUp /> Testiomnies
             </NavLink>
           </li>
           <li>
             <NavLink to={"/volunteers"}>
-              <IoHappy /> Volunteers{" "}
+              <IoHappy /> Volunteers
             </NavLink>
           </li>
         </ul>

@@ -23,6 +23,7 @@ import AddTestimony from './pages/AddTestimony';
 import EditTestimony from './pages/EditTestimony';
 import AddVolunteer from './pages/AddVolunteer';
 import EditVolunteer from './pages/EditVolunteer';
+import Finances from './pages/Finances';
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
           <Route path='/counters' element={<Counters />}></Route>
           <Route path='/counters/add' element={<AddCounter />}></Route>
           <Route path='/counters/edit/:id' element={<EditCounter />}></Route>
+
+          <Route path='/finances' element={<Finances />}></Route>
+
 
           <Route path='/partners' element={<Partners />}></Route>
           <Route path='/partners/add' element={<AddPartner />}></Route>
