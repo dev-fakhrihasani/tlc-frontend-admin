@@ -7,7 +7,7 @@ const FinanceList = () => {
 
   useEffect(() => {
     getFinances()
-  })
+  }, [])
 
   const getFinances = async () => {
     const response = await axios.get('http://localhost:5000/finances')
@@ -21,15 +21,16 @@ const FinanceList = () => {
 
   return (
     <div>
-      <h1 className='title'>Counters</h1>
-      <h2 className='subtitle'>List of Counters</h2>
-      <Link to="/counters/add" className="button is-primary mb-2">Add New</Link >
+      <h1 className='title'>Finances</h1>
+      <h2 className='subtitle'>List of Finances</h2>
+      <Link to="/finances/add" className="button is-primary mb-2">Add New</Link >
       <table className='table is-striped is-fullwidth'>
         <thead>
           <tr>
             <th>No</th>
-            <th>Name</th>
-            <th>Amount</th>
+            <th>Month</th>
+            <th>Income</th>
+            <th>Outcome</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -37,6 +38,7 @@ const FinanceList = () => {
           {finances.map((finance, index) => (
             <tr key={finance.id}>
               <td>{index + 1}</td>
+              <td>{finance.month}</td>
               <td>{finance.income}</td>
               <td>{finance.outcome}</td>
               <td>

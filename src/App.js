@@ -24,6 +24,7 @@ import EditTestimony from './pages/EditTestimony';
 import AddVolunteer from './pages/AddVolunteer';
 import EditVolunteer from './pages/EditVolunteer';
 import Finances from './pages/Finances';
+import AddFinance from './pages/AddFinance';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path='/counters/edit/:id' element={<EditCounter />}></Route>
 
           <Route path='/finances' element={<Finances />}></Route>
+          <Route path='/finances/add' element={<AddFinance />}></Route>
 
 
           <Route path='/partners' element={<Partners />}></Route>
