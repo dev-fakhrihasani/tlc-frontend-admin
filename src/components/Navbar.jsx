@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { logOut, reset } from "../features/authSlice"
 import Sidebar from "./Sidebar"
 import "../styles/main.css"
@@ -9,7 +9,6 @@ import Logo from "../assets/logo.svg"
 const Navbar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { user } = useSelector((state) => state.auth)
   const [isActive, setActive] = useState(false)
 
   const logout = () => {
@@ -18,19 +17,10 @@ const Navbar = () => {
     navigate("/")
   }
   return (
-    <nav
-      className="navbar is-fixed-top has-background-link-light"
-      role="navigation"
-      aria-label="main navigation"
-    >
+    <nav className="navbar is-fixed-top has-background-link-light" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <NavLink to="/dashboard" className="navbar-item">
-          <img
-            src={Logo}
-            alt="Logo"
-            width="112"
-            height="28"
-          />
+          <img src={Logo} alt="Logo" width="192" />
         </NavLink>
 
         <a
@@ -59,7 +49,7 @@ const Navbar = () => {
               <Sidebar />
             </div>
             <div className="buttons">
-              <button onClick={logout} className="button is-light">
+              <button onClick={logout} className="button is-info is-outlined">
                 Log out
               </button>
             </div>
