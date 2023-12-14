@@ -9,12 +9,12 @@ const Layout = ({ children }) => {
       <React.Fragment>
         <Navbar />
         <div className="columns pt-6" style={{ minHeight: "100vh" }}>
-          <div className="column is-2 has-background-link-light is-hidden-tablet-only">
+          <div className="column is-2 is-hidden-tablet-only has-background-link-light">
             <div className="sm-hidden">
               <Sidebar />
             </div>
           </div>
-          <div className="column">
+          <div className="column p-6">
             <main>{children}</main>
           </div>
         </div>
