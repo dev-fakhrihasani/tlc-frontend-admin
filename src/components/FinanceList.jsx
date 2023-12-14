@@ -14,6 +14,11 @@ const FinanceList = () => {
     setFinances(response.data)
   }
 
+  const deleteFinance = async (id) => {
+    await axios.delete(`http://localhost:5000/finances/${id}`)
+    getFinances()
+  }
+
   return (
     <div>
       <h1 className='title'>Counters</h1>
@@ -36,7 +41,7 @@ const FinanceList = () => {
               <td>{finance.outcome}</td>
               <td>
                 <Link to={`/finances/edit/${finance.id}`} className='button is-small is-info'>Edit</Link>
-                <button className='button is-small is-danger'>Delete</button>
+                <button onClick={() => deleteFinance(finance.id)} className='button is-small is-danger'>Delete</button>
               </td>
             </tr>
           ))}

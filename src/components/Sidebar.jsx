@@ -10,6 +10,7 @@ import {
   IoSpeedometer,
   IoThumbsUp,
 } from "react-icons/io5"
+import { AiFillDollarCircle } from "react-icons/ai";
 import { NavLink } from "react-router-dom"
 
 const Sidebar = () => {
@@ -40,7 +41,7 @@ const Sidebar = () => {
           </li>
           <li>
             <NavLink to={"/finances"}>
-              <IoSpeedometer /> Finances
+              <AiFillDollarCircle /> Finances
             </NavLink>
           </li>
           <li>
