@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { NumericFormat } from 'react-number-format'
 
 const FinanceList = () => {
   const [finances, setFinances] = useState([])
@@ -39,8 +40,8 @@ const FinanceList = () => {
             <tr key={finance.id}>
               <td>{index + 1}</td>
               <td>{finance.month}</td>
-              <td>{finance.income}</td>
-              <td>{finance.outcome}</td>
+              <td><NumericFormat value={finance.income} displayType={'text'} thousandSeparator="." decimalSeparator="," prefix={'Rp '} /></td>
+              <td><NumericFormat value={finance.outcome} displayType={'text'} thousandSeparator="." decimalSeparator="," prefix={'Rp '} /></td>
               <td>
                 <Link to={`/finances/edit/${finance.id}`} className='button is-small is-info'>Edit</Link>
                 <button onClick={() => deleteFinance(finance.id)} className='button is-small is-danger'>Delete</button>
