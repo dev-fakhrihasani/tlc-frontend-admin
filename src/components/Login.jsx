@@ -66,7 +66,7 @@ const Login = () => {
                       required />
                   </div>
                 </div>
-                <div className="field mt-5">
+                <div className="field mt-6">
                   <button type='submit' className="button is-success is-fullwidth">{isLoading ? 'Loading...' : 'Login'}</button>
                 </div>
               </form>
