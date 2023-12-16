@@ -21,7 +21,7 @@ const FormEditBlog = () => {
   useEffect(() => {
     const getBlogById = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/blogs/${id}`)
+        const response = await axios.get(`https://api.tegallearningcenter.id/blogs/${id}`)
         setTitle(response.data.title)
         setSlug(response.data.slug)
         setDesc(response.data.desc)
@@ -41,7 +41,7 @@ const FormEditBlog = () => {
   const updateBlog = async (e) => {
     e.preventDefault()
     try {
-      await axios.patch(`http://localhost:5000/blogs/${id}`, {
+      await axios.patch(`https://api.tegallearningcenter.id/blogs/${id}`, {
         title,
         slug: sluger(title),
         desc,

@@ -15,7 +15,7 @@ const FormEditPartner = () => {
   useEffect(() => {
     const getPartnerById = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/partners/${id}`)
+        const response = await axios.get(`https://api.tegallearningcenter.id/partners/${id}`)
         setName(response.data.name)
         setFile(response.data.image)
         setPreview(response.data.url)
@@ -31,7 +31,7 @@ const FormEditPartner = () => {
   const updatePartner = async (e) => {
     e.preventDefault()
     try {
-      await axios.patch(`http://localhost:5000/partners/${id}`, {
+      await axios.patch(`https://api.tegallearningcenter.id/partners/${id}`, {
         name,
         file
 

@@ -17,7 +17,7 @@ const FormEditFinance = () => {
   useEffect(() => {
     const getFinanceById = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/finances/${id}`)
+        const response = await axios.get(`https://api.tegallearningcenter.id/finances/${id}`)
         setMonth(response.data.month)
         setIncome(response.data.income)
         setOutcome(response.data.outcome)
@@ -33,7 +33,7 @@ const FormEditFinance = () => {
   const updateFinance = async (e) => {
     e.preventDefault()
     try {
-      await axios.patch(`http://localhost:5000/finances/${id}`, {
+      await axios.patch(`https://api.tegallearningcenter.id/finances/${id}`, {
         month,
         income,
         outcome

@@ -10,12 +10,12 @@ const TestimonyList = () => {
   }, [])
 
   const getTestimony = async () => {
-    const response = await axios.get('http://localhost:5000/testimonies')
+    const response = await axios.get('https://api.tegallearningcenter.id/testimonies')
     setTestimonies(response.data)
   }
 
   const deletePartner = async (id) => {
-    await axios.delete(`http://localhost:5000/testimonies/${id}`)
+    await axios.delete(`https://api.tegallearningcenter.id/testimonies/${id}`)
     getTestimony()
   }
 

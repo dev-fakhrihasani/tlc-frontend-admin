@@ -11,12 +11,12 @@ const BlogList = () => {
   }, [])
 
   const getBlogs = async () => {
-    const response = await axios.get('http://localhost:5000/blogs')
+    const response = await axios.get('https://api.tegallearningcenter.id/blogs')
     SetBlogs(response.data)
   }
 
   const deleteBlog = async (id) => {
-    await axios.delete(`http://localhost:5000/blogs/${id}`)
+    await axios.delete(`https://api.tegallearningcenter.id/blogs/${id}`)
     getBlogs()
   }
 

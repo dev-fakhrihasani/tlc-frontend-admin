@@ -10,12 +10,12 @@ const CounterList = () => {
   }, [])
 
   const getCounters = async () => {
-    const response = await axios.get('http://localhost:5000/counters')
+    const response = await axios.get('https://api.tegallearningcenter.id/counters')
     setCounters(response.data)
   }
 
   const deleteCounter = async (id) => {
-    await axios.delete(`http://localhost:5000/counters/${id}`)
+    await axios.delete(`https://api.tegallearningcenter.id/counters/${id}`)
     getCounters()
   }
   return (

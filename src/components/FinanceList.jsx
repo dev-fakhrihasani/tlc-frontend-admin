@@ -11,12 +11,12 @@ const FinanceList = () => {
   }, [])
 
   const getFinances = async () => {
-    const response = await axios.get('http://localhost:5000/finances')
+    const response = await axios.get('https://api.tegallearningcenter.id/finances')
     setFinances(response.data)
   }
 
   const deleteFinance = async (id) => {
-    await axios.delete(`http://localhost:5000/finances/${id}`)
+    await axios.delete(`https://api.tegallearningcenter.id/finances/${id}`)
     getFinances()
   }
 

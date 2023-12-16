@@ -10,12 +10,12 @@ const UserList = () => {
   }, [])
 
   const getUsers = async () => {
-    const response = await axios.get('http://localhost:5000/users')
+    const response = await axios.get('https://api.tegallearningcenter.id/users')
     setUsers(response.data)
   }
 
   const deleteUser = async (userId) => {
-    await axios.delete(`http://localhost:5000/users/${userId}`)
+    await axios.delete(`https://api.tegallearningcenter.id/users/${userId}`)
     getUsers()
   }
 

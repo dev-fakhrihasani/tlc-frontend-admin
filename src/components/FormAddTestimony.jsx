@@ -17,7 +17,7 @@ const FormAddTestimony = () => {
   const saveTestimony = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:5000/testimonies', {
+      await axios.post('https://api.tegallearningcenter.id/testimonies', {
         name,
         position,
         desc,

@@ -11,12 +11,12 @@ const ProgramList = () => {
   }, [])
 
   const getPrograms = async () => {
-    const response = await axios.get('http://localhost:5000/programs')
+    const response = await axios.get('https://api.tegallearningcenter.id/programs')
     setPrograms(response.data)
   }
 
   const deleteProgram = async (id) => {
-    await axios.delete(`http://localhost:5000/programs/${id}`)
+    await axios.delete(`https://api.tegallearningcenter.id/programs/${id}`)
     getPrograms()
   }
 

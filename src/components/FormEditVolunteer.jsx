@@ -16,7 +16,7 @@ const FormEditVolunteer = () => {
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/volunteers/${id}`)
+        const response = await axios.get(`https://api.tegallearningcenter.id/volunteers/${id}`)
         setName(response.data.name)
         setDivision(response.data.division)
         setFile(response.data.image)
@@ -33,7 +33,7 @@ const FormEditVolunteer = () => {
   const updateVolunteer = async (e) => {
     e.preventDefault()
     try {
-      await axios.patch(`http://localhost:5000/volunteers/${id}`, {
+      await axios.patch(`https://api.tegallearningcenter.id/volunteers/${id}`, {
         name,
         division,
         file

@@ -15,7 +15,7 @@ const FormAddFinance = () => {
   const saveFinance = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:5000/finances', {
+      await axios.post('https://api.tegallearningcenter.id/finances', {
         month,
         income,
         outcome

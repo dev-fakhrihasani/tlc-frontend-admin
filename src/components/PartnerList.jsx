@@ -10,12 +10,12 @@ const PartnerList = () => {
   }, [])
 
   const getPartner = async () => {
-    const response = await axios.get('http://localhost:5000/partners')
+    const response = await axios.get('https://api.tegallearningcenter.id/partners')
     setPartners(response.data)
   }
 
   const deletePartner = async (id) => {
-    await axios.delete(`http://localhost:5000/partners/${id}`)
+    await axios.delete(`https://api.tegallearningcenter.id/partners/${id}`)
     getPartner()
   }
 

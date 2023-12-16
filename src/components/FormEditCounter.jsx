@@ -11,7 +11,7 @@ const FormEditCounter = () => {
   useEffect(() => {
     const getCounterById = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/counters/${id}`)
+        const response = await axios.get(`https://api.tegallearningcenter.id/counters/${id}`)
         setName(response.data.name)
         setAmount(response.data.amount)
       } catch (error) {
@@ -28,7 +28,7 @@ const FormEditCounter = () => {
   const updateProduct = async (e) => {
     e.preventDefault()
     try {
-      await axios.patch(`http://localhost:5000/counters/${id}`, {
+      await axios.patch(`https://api.tegallearningcenter.id/counters/${id}`, {
         name,
         amount
       })

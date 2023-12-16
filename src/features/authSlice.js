@@ -11,7 +11,7 @@ const initialState = {
 
 export const loginUser = createAsyncThunk("user/loginUser", async (user, thunkAPI) => {
   try {
-    const response = await axios.post("http://localhost:5000/login", {
+    const response = await axios.post("https://api.tegallearningcenter.id/login", {
       email: user.email,
       password: user.password
     })
@@ -26,7 +26,7 @@ export const loginUser = createAsyncThunk("user/loginUser", async (user, thunkAP
 
 export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
   try {
-    const response = await axios.get("http://localhost:5000/me")
+    const response = await axios.get("https://api.tegallearningcenter.id/me")
     return response.data
   } catch (error) {
     if (error.response) {
@@ -37,7 +37,7 @@ export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
 })
 
 export const logOut = createAsyncThunk("user/logout", async () => {
-  await axios.delete("http://localhost:5000/logout")
+  await axios.delete("https://api.tegallearningcenter.id/logout")
 })
 
 export const authSlice = createSlice({

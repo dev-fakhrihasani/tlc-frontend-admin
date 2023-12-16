@@ -19,7 +19,7 @@ const FormEditTestimony = () => {
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/testimonies/${id}`)
+        const response = await axios.get(`https://api.tegallearningcenter.id/testimonies/${id}`)
         setName(response.data.name)
         setPosition(response.data.position)
         setDesc(response.data.desc)
@@ -37,7 +37,7 @@ const FormEditTestimony = () => {
   const updateTestimony = async (e) => {
     e.preventDefault()
     try {
-      await axios.patch(`http://localhost:5000/testimonies/${id}`, {
+      await axios.patch(`https://api.tegallearningcenter.id/testimonies/${id}`, {
         name,
         position,
         desc,

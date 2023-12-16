@@ -10,12 +10,12 @@ const VolunteerList = () => {
   }, [])
 
   const getVolunteers = async () => {
-    const response = await axios.get('http://localhost:5000/volunteers')
+    const response = await axios.get('https://api.tegallearningcenter.id/volunteers')
     setVolunteers(response.data)
   }
 
   const deleteVolunteer = async (id) => {
-    await axios.delete(`http://localhost:5000/volunteers/${id}`)
+    await axios.delete(`https://api.tegallearningcenter.id/volunteers/${id}`)
     getVolunteers()
   }
 

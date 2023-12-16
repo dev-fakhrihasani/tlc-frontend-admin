@@ -18,7 +18,7 @@ const FormAddBlog = () => {
   const saveBlog = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:5000/blogs', {
+      await axios.post('https://api.tegallearningcenter.id/blogs', {
         title,
         slug: sluger(title),
         desc,

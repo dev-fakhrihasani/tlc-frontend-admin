@@ -12,7 +12,7 @@ const FormEditProgram = () => {
   useEffect(() => {
     const getCounterById = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/programs/${id}`)
+        const response = await axios.get(`https://api.tegallearningcenter.id/programs/${id}`)
         setName(response.data.name)
       } catch (error) {
         if (error.response) {
@@ -26,7 +26,7 @@ const FormEditProgram = () => {
   const updateProgram = async (e) => {
     e.preventDefault()
     try {
-      await axios.patch(`http://localhost:5000/programs/${id}`, {
+      await axios.patch(`https://api.tegallearningcenter.id/programs/${id}`, {
         name
       })
       navigate('/programs')

@@ -14,7 +14,7 @@ const FormAddPartner = () => {
   const savePartner = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:5000/partners', {
+      await axios.post('https://api.tegallearningcenter.id/partners', {
         name,
         file
 

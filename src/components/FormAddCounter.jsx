@@ -12,7 +12,7 @@ const FormAddCounter = () => {
   const saveCounter = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:5000/counters', {
+      await axios.post('https://api.tegallearningcenter.id/counters', {
         name,
         amount
       })
